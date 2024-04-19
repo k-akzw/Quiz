@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MCQuestions" representedClassName="MCQuestions" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="choice1" attributeType="String"/>
+        <attribute name="choice2" optional="YES" attributeType="String"/>
+        <attribute name="choice3" optional="YES" attributeType="String"/>
+        <attribute name="choice4" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="qType" attributeType="String"/>
+        <attribute name="question" attributeType="String"/>
+    </entity>
+</model>
