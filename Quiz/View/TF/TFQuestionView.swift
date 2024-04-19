@@ -10,9 +10,9 @@ import SwiftUI
 struct TFQuestionView: View {
   @Environment(\.managedObjectContext) var managedObjContext
   @Environment(\.dismiss) var dismiss
-  @FetchRequest(sortDescriptors: [SortDescriptor(\MCQuestions.id, order: .reverse)]) var data: FetchedResults<MCQuestions>
+  @FetchRequest(sortDescriptors: [SortDescriptor(\TFQuestions.id, order: .reverse)]) var data: FetchedResults<TFQuestions>
 
-  @State private var questions = [Question]()
+  @State private var questions = [TFQuestion]()
   @State private var qIndex = 0
   @State private var showAnswer = false
   @State private var showAddView = false
@@ -20,31 +20,29 @@ struct TFQuestionView: View {
 
   var body: some View {
     VStack {
-      QuestionTextView(questions: $questions, 
-                       qIndex: $qIndex,
-                       showAnswer: $showAnswer,
-                       qType: QuestionType.tf)
+      TFQuestionTextView(questions: $questions,
+												 qIndex: $qIndex,
+												 showAnswer: $showAnswer)
 
       Spacer()
-        .frame(height: 20)
 
-      ChangeQuestionButton(questions: $questions,
-                           showAnswer: $showAnswer,
-                           qIndex: $qIndex)
+      ChangeQuestionButton(numOfQuestions: questions.count,
+													 showAnswer: $showAnswer,
+													 qIndex: $qIndex)
     }
     .navigationDestination(isPresented: $showEditView, destination: {
       // if there is no question
       // it will produce error that data is nil
       if qIndex < questions.count {
-        EditQuestionView(data: questions[qIndex].res, qType: QuestionType.tf)
+        EditTFQuestionView(data: questions[qIndex].res)
       }
     })
     .navigationDestination(isPresented: $showAddView, destination: {
-      AddQuestionView(qType: QuestionType.tf)
+      AddTFQuestionView()
     })
     .onAppear {
       showAnswer = false
-      questions = QuizModel.shared.getQuestions(data, qType: QuestionType.tf)
+      questions = QuizModel.shared.getTFQuestions(data)
     }
     .toolbar {
       // goes back to previous screen
@@ -85,6 +83,34 @@ struct TFQuestionView: View {
     .toolbarColorScheme(.dark, for: .navigationBar)
     .navigationBarBackButtonHidden()
   }
+}
+
+struct TFQuestionTextView: View {
+	@Binding var questions: [TFQuestion]
+	@Binding var qIndex: Int
+	@Binding var showAnswer: Bool
+	
+	var body: some View {
+		if qIndex < questions.count {
+			let q = questions[qIndex]
+			
+			Text(q.question)
+			
+			Spacer()
+			
+			ChoiceView(choice: "True",
+								 correct: q.answer,
+								 qIndex: $qIndex,
+								 showAnswer: $showAnswer)
+			ChoiceView(choice: "False",
+								 correct: !q.answer,
+								 qIndex: $qIndex,
+								 showAnswer: $showAnswer)
+		} else {
+			Text("No questions")
+				.bold()
+		}
+	}
 }
 
 //#Preview {

@@ -10,9 +10,9 @@ import SwiftUI
 struct FBQuestionView: View {
   @Environment(\.managedObjectContext) var managedObjContext
   @Environment(\.dismiss) var dismiss
-  @FetchRequest(sortDescriptors: [SortDescriptor(\MCQuestions.id, order: .reverse)]) var data: FetchedResults<MCQuestions>
+  @FetchRequest(sortDescriptors: [SortDescriptor(\FBQuestions.id, order: .reverse)]) var data: FetchedResults<FBQuestions>
 
-  @State private var questions = [Question]()
+  @State private var questions = [FBQuestion]()
   @State private var qIndex = 0
   @State private var showAnswer = false
   @State private var showAddView = false
@@ -26,13 +26,12 @@ struct FBQuestionView: View {
 
         Spacer()
 
-        // answer is stored in choice1 for fill in blank questions
-        Text("Answer: \(questions[qIndex].choice1)")
+        Text("Answer: \(questions[qIndex].answer)")
           .opacity(showAnswer ? 1 : 0)
 
         HStack {
           TextField("Answer", text: $answer)
-            .foregroundStyle(showAnswer ? (answer == questions[qIndex].choice1 ? Color.green : Color.red) : Color.black)
+            .foregroundStyle(showAnswer ? (answer == questions[qIndex].answer ? Color.green : Color.red) : Color.black)
             .onSubmit {
               showAnswer = true
             }
@@ -60,8 +59,8 @@ struct FBQuestionView: View {
         Spacer()
       }
 
-      ChangeQuestionButton(questions: $questions,
-                           showAnswer: $showAnswer,
+      ChangeQuestionButton(numOfQuestions: questions.count,
+													 showAnswer: $showAnswer,
                            qIndex: $qIndex)
     }
     .navigationDestination(isPresented: $showEditView, destination: {
@@ -74,7 +73,7 @@ struct FBQuestionView: View {
     })
     .onAppear {
       showAnswer = false
-      questions = QuizModel.shared.getQuestions(data, qType: QuestionType.fb)
+      questions = QuizModel.shared.getFBQuestions(data)
     }
     .toolbar {
       // goes back to previous screen

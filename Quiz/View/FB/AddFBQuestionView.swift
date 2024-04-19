@@ -1,5 +1,5 @@
 //
-//  EditFBQuestionView.swift
+//  AddFBQuestionView.swift
 //  Quiz
 //
 //  Created by Kento Akazawa on 4/19/24.
@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-struct EditFBQuestionView: View {
+struct AddFBQuestionView: View {
   @Environment(\.managedObjectContext) var managedObjContext
   @Environment(\.dismiss) var dismiss
-
-  var data: FetchedResults<MCQuestions>.Element?
 
   @State private var question = ""
   @State private var answer = ""
@@ -21,13 +19,6 @@ struct EditFBQuestionView: View {
       Section {
         TextField("Question", text: $question)
         TextField("Answer", text: $answer)
-      }
-    }
-    .onAppear {
-      // initialize attributes to existing one
-      if data != nil {
-        question = data!.question!
-        answer = data!.choice1!
       }
     }
     .toolbar {
@@ -43,17 +34,17 @@ struct EditFBQuestionView: View {
         }
       }
 
-      // save the edited question to database
+      // save the new question to database
       ToolbarItem(placement: .navigationBarTrailing) {
         Button {
-          DataController().editPassword(Question(id: UUID(), question: question, choice1: answer, choice2: "", choice3: "", choice4: "", answer: 1, qType: QuestionType.fb), to: data!, context: managedObjContext)
+          // add new question to database and goes back to previous screen
+          DataController().addFBQuestion(FBQuestion(id: UUID(), question: question, answer: answer), context: managedObjContext)
           dismiss()
         } label: {
-          Text("Save")
+          Label("Save", systemImage: "save")
         }
       }
     }
-    .padding()
     .navigationTitle("Add Question")
     .navigationBarTitleDisplayMode(.inline)
     .toolbarBackground(.orange, for: .navigationBar)
@@ -64,5 +55,5 @@ struct EditFBQuestionView: View {
 }
 
 //#Preview {
-//  EditFBQuestionView()
+//  AddFBQuestionView()
 //}
