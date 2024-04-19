@@ -33,9 +33,9 @@ This iOS application allows you to create and answer multiple choice questions, 
 
 ## Screenshots
 
-![1](https://github.com/k-akzw/Quiz/assets/114431999/3b19c2b4-8bc2-4df4-838f-85dad3d4753b)
-![2](https://github.com/k-akzw/Quiz/assets/114431999/f374c4ed-0824-4bec-8141-f4184bd857d6)
-![3](https://github.com/k-akzw/Quiz/assets/114431999/66942ff8-8f63-413b-b8f3-e6326c55c8b7)
-![4](https://github.com/k-akzw/Quiz/assets/114431999/097782c7-844f-456a-8d9a-3bcc83074d74)
-![5](https://github.com/k-akzw/Quiz/assets/114431999/6ecb3322-2e33-4c84-b6f9-86925a4c1401)
-![6](https://github.com/k-akzw/Quiz/assets/114431999/65255fba-6906-47a4-ba6b-08866b6221cd)
+![1](https://github.com/k-akzw/Quiz/assets/114431999/47eb473c-18d5-4f8a-b0d7-521e173f1ed8)
+![2](https://github.com/k-akzw/Quiz/assets/114431999/51cf1396-ce19-4fed-99e5-a8bb41020f84)
+![3](https://github.com/k-akzw/Quiz/assets/114431999/00bdc1d4-10ed-443f-ae7f-0af40fa631e1)
+![4](https://github.com/k-akzw/Quiz/assets/114431999/b6a0725c-2bfa-4b30-a866-e0700eb573d7)
+![5](https://github.com/k-akzw/Quiz/assets/114431999/008bf459-12f2-4288-a17f-5e424893eebe)
+![6](https://github.com/k-akzw/Quiz/assets/114431999/1a3a766c-b3df-450e-9f57-c686c172241f)
