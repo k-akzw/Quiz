@@ -54,14 +54,14 @@ struct FBQuestionView: View {
           // rounded rectable around text
           RoundedRectangle(cornerRadius: 20).stroke(Color.secondary, lineWidth: 1)
         }
+        ChangeQuestionButton(numOfQuestions: questions.count,
+                             showAnswer: $showAnswer,
+                             qIndex: $qIndex)
       } else {
         Text("No Questions")
+          .bold()
         Spacer()
       }
-
-      ChangeQuestionButton(numOfQuestions: questions.count,
-													 showAnswer: $showAnswer,
-                           qIndex: $qIndex)
     }
     .navigationDestination(isPresented: $showEditView, destination: {
       if qIndex < questions.count {

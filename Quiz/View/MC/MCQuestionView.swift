@@ -23,12 +23,6 @@ struct MCQuestionView: View {
 			MCQuestionTextView(questions: $questions,
 												 qIndex: $qIndex,
 												 showAnswer: $showAnswer)
-			
-			Spacer()
-			
-			ChangeQuestionButton(numOfQuestions: questions.count,
-													 showAnswer: $showAnswer,
-													 qIndex: $qIndex)
 		}
 		.navigationDestination(isPresented: $showEditView, destination: {
 			if qIndex < questions.count {
@@ -112,9 +106,14 @@ struct MCQuestionTextView: View {
 								 correct: q.answer == 4,
 								 qIndex: $qIndex,
 								 showAnswer: $showAnswer)
+
+      ChangeQuestionButton(numOfQuestions: questions.count,
+                           showAnswer: $showAnswer,
+                           qIndex: $qIndex)
 		} else {
 			Text("No questions")
 				.bold()
+      Spacer()
 		}
 	}
 }

@@ -17,12 +17,16 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       VStack {
-        NavigationLinkButton(title: "Multiple Choice Questions", 
+        Spacer()
+        NavigationLinkButton(title: "Multiple Choice Questions",
                              showView: $showMCView)
-        NavigationLinkButton(title: "True/False Questions", 
+        Spacer()
+        NavigationLinkButton(title: "True/False Questions",
                              showView: $showTFView)
+        Spacer()
         NavigationLinkButton(title: "Fill in Blank Questions",
                              showView: $showFBView)
+        Spacer()
       }
       .navigationDestination(isPresented: $showMCView, destination: {
         MCQuestionView()

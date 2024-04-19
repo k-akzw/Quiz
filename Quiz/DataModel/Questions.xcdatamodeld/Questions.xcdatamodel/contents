@@ -12,7 +12,7 @@
         <attribute name="choice3" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="choice4" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="question" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="question" attributeType="String" defaultValueString="&quot;&quot;"/>
     </entity>
     <entity name="TFQuestions" representedClassName="TFQuestions" syncable="YES" codeGenerationType="class">
         <attribute name="answer" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>

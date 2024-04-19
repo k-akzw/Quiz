@@ -23,12 +23,6 @@ struct TFQuestionView: View {
       TFQuestionTextView(questions: $questions,
 												 qIndex: $qIndex,
 												 showAnswer: $showAnswer)
-
-      Spacer()
-
-      ChangeQuestionButton(numOfQuestions: questions.count,
-													 showAnswer: $showAnswer,
-													 qIndex: $qIndex)
     }
     .navigationDestination(isPresented: $showEditView, destination: {
       // if there is no question
@@ -106,9 +100,14 @@ struct TFQuestionTextView: View {
 								 correct: !q.answer,
 								 qIndex: $qIndex,
 								 showAnswer: $showAnswer)
+
+      ChangeQuestionButton(numOfQuestions: questions.count,
+                           showAnswer: $showAnswer,
+                           qIndex: $qIndex)
 		} else {
 			Text("No questions")
 				.bold()
+      Spacer()
 		}
 	}
 }
