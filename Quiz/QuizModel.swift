@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-//enum QuestionType: String {
-//  case mc = "mc"  // multiple choice
-//  case tf = "tf"  // true/false
-//  case fb = "fb"  // fill in blank
-//}
-
 class QuizModel {
   // singleton instance of this class
   static let shared = QuizModel()
