@@ -86,33 +86,6 @@ class DataController: ObservableObject {
 		
 		save(context: context)
 	}
-
-//  func addQuestion(_  q: Question, context: NSManagedObjectContext) {
-//    let question = MCQuestions(context: context)
-//    question.id = q.id
-//    question.question = q.question
-//    question.choice1 = q.choice1
-//    question.choice2 = q.choice2
-//    question.choice3 = q.choice3
-//    question.choice4 = q.choice4
-//    question.answer = Int16(q.answer)
-//    question.qType = q.qType.rawValue
-//
-//    save(context: context)
-//  }
-
-//  func editPassword(_ q: Question, to question: MCQuestions, context: NSManagedObjectContext) {
-//    question.id = q.id
-//    question.question = q.question
-//    question.choice1 = q.choice1
-//    question.choice2 = q.choice2
-//    question.choice3 = q.choice3
-//    question.choice4 = q.choice4
-//    question.answer = Int16(q.answer)
-//    question.qType = q.qType.rawValue
-//
-//    save(context: context)
-//  }
 }
 
 struct MCQuestion: Identifiable {
